@@ -11,9 +11,13 @@ public partial class Persona
 
     public string Apellido { get; set; } = null!;
 
-    public DateTime FechaNacimiento { get; set; }
+    public DateOnly? FechaNacimiento { get; set; }
 
-    public string Residencia { get; set; } = null!;
+    public int? IdResidencia { get; set; }
 
-    public string Nacionalidad { get; set; } = null!;
+    public int? IdNacionalidad { get; set; }
+
+    public virtual Nacionalidad? IdNacionalidadNavigation { get; set; }
+
+    public virtual Residencium? IdResidenciaNavigation { get; set; }
 }

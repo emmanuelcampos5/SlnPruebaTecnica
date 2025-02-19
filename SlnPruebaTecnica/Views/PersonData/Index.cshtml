@@ -15,32 +15,32 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label  class="control-label">ID</label>
-                <input  class="form-control" />
+                <label class="control-label"></label>
+                <input class="form-control" />
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label">Nombre</label>
-                <input  class="form-control" />
-                <span  class="text-danger"></span>
+                <label class="control-label"></label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label">Apellido</label>
-                <input  class="form-control" />
-                <span  class="text-danger"></span>
+                <label class="control-label"></label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label">FechaNacimiento</label>
-                <input type="date" class="form-control" />
-                <span  class="text-danger"></span>
+                <label class="control-label"></label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label  class="control-label">Residencia</label>
-                <input  class="form-control" />
-                <span  class="text-danger"></span>
+                <label class="control-label"></label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Nacionalidad</label>
+                <label class="control-label"></label>
                 <input class="form-control" />
                 <span class="text-danger"></span>
             </div>
@@ -67,49 +67,43 @@
                     @Html.DisplayNameFor(model => model.FechaNacimiento)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Residencia)
+                    @Html.DisplayNameFor(model => model.IdResidencia)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nacionalidad)
+                    @Html.DisplayNameFor(model => model.IdNacionalidad)
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-    @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Apellido)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Residencia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nacionalidad)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-    }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdResidencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdNacionalidad)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
-

@@ -10,10 +10,5 @@ namespace SlnPruebaTecnica.Controllers
         {
             return View(db.Personas.ToList());
         }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
     }
 }
