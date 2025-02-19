@@ -8,7 +8,7 @@ namespace SlnPruebaTecnica.Controllers
         PruebaTecnicaDbContext db = new PruebaTecnicaDbContext();
         public IActionResult Index()
         {
-            return View(db.Personas.ToList());
+            return View(Tuple.Create(db.Personas.ToList(), db.Nacionalidads.OrderBy(x => x.Descripcion).ToList(), db.Residencia.OrderBy(x => x.Descripcion).ToList()));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SlnPruebaTecnica.Models.Persona>
+﻿@model Tuple<List<SlnPruebaTecnica.Models.Persona>, List<SlnPruebaTecnica.Models.Nacionalidad>, List<SlnPruebaTecnica.Models.Residencium>>
 
 @{
     ViewData["Title"] = "Index";
@@ -36,13 +36,22 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Residencia</label>
-                <select id="residencia" class="form-control"></select>
+                <select id="residencia" class="form-control">
+                    @foreach (var res in Model.Item3) {
+                        <option value="@res.IdResidencia">@res.Descripcion</option>
+                    }
+                </select>
                 <span class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label class="control-label">Nacionalidad</label>
-                <select id="nacionalidad" class="form-control"></select>
+                 <select id="nacionalidad" class="form-control">
+                    @foreach (var nac in Model.Item2)
+                    {
+                        <option value="@nac.IdNacionalidad">@nac.Descripcion</option>
+                    }
+                </select>
                 <span class="text-danger"></span>
             </div>
         </form>
@@ -55,28 +64,28 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    ID
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
+                    Nombre
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Apellido)
+                    Apellido
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                    Fecha Nacimiento
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdResidencia)
+                    Residencia
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdNacionalidad)
+                    Nacionalidad
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Item1)
             {
                 <tr>
                     <td>
@@ -92,10 +101,20 @@
                         @Html.DisplayFor(modelItem => item.FechaNacimiento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdResidencia)
+                        @foreach(var res in Model.Item3){
+                            if(item.IdResidencia == res.IdResidencia ){
+                                @Html.DisplayFor(modelItem => res.Descripcion)
+                            }
+                        }
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdNacionalidad)
+                        @foreach (var nac in Model.Item2)
+                        {
+                            if (item.IdResidencia == nac.IdNacionalidad)
+                            {
+                                @Html.DisplayFor(modelItem => nac.Descripcion)
+                            }
+                        }   
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
