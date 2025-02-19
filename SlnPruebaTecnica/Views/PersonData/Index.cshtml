@@ -12,43 +12,43 @@
 </p>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form id="formPersonData">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input class="form-control" />
+                <label class="control-label">ID</label>
+                <input id="ID" class="form-control" />
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input class="form-control" />
+                <label class="control-label">Nombre</label>
+                <input id="Nombre" class="form-control" />
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input class="form-control" />
+                <label class="control-label">Apellido</label>
+                <input id="Apellido" class="form-control" />
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input class="form-control" />
+                <label class="control-label">Fecha Nacimiento</label>
+                <input id="FechaNacimiento" type="date" class="form-control" />
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label"></label>
-                <input class="form-control" />
+                <label class="control-label">Residencia</label>
+                <select id="residencia" class="form-control"></select>
                 <span class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label class="control-label"></label>
-                <input class="form-control" />
+                <label class="control-label">Nacionalidad</label>
+                <select id="nacionalidad" class="form-control"></select>
                 <span class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+        <button id="Insertar" class="btn btn-primary mt-3">Insertar</button>
     </div>
+
 </div>
 <div>
     <table class="table">
